@@ -43,50 +43,41 @@ PostGD enables **structured representations and quantitative measurements**, fac
 
 ## 🌀 2. Prior-Guided Postoperative Data Engine
 
-Instead of naive synthesis, PostGD enforces **clinically valid constraints** during data generation:
+Instead of naive synthesis, **PostGD enforces clinically valid constraints** during postoperative data generation, integrating anatomical structures and therapeutic patterns to ensure realism and clinical plausibility.
 
 - **Anatomical priors**: optic disc/cup, macula, vessels  
-- **Therapeutic priors**: laser spot placement and distribution  
-- **Visual realism**: foundation-generated backgrounds + constrained spot synthesis  
+- **Therapeutic priors**: laser spot placement and spatial distribution  
+- **Visual realism**: foundation-generated backgrounds with constrained spot synthesis  
 
 <div align="center">
-  <img src="assets/fig2_generation.png" width="92%"/>
+  <img src="image/g3.jpg" width="92%"/>
   <br>
-  <em>Anatomically and therapeutically consistent postoperative fundus synthesis.</em>
+  <em>Overview of the PostGD framework: prior-guided postoperative data generation, foundation distillation, and multi-task adaptation.</em>
 </div>
 
 ---
 
 ## 🔥 3. Foundation Distillation for Postoperative Representation Learning
 
-PostGD distills structural and semantic priors from a **frozen foundation teacher** into a **compact student backbone**, using large-scale synthetic postoperative data.
+Built upon the prior-guided synthetic data, PostGD distills **structural and semantic priors** from a frozen foundation teacher into a compact student backbone.  
+As illustrated in the pipeline above, large-scale synthetic postoperative images are used to align synthetic and real representations under extremely limited supervision.
 
-This enables:
-- Stable representation learning under limited real annotations  
+This design enables:
+- Stable representation learning with scarce real annotations  
 - Efficient downstream adaptation  
-- Lightweight deployment  
-
-<div align="center">
-  <img src="assets/fig3_distillation.png" width="92%"/>
-  <br>
-  <em>Foundation distillation aligns synthetic and real postoperative representations.</em>
-</div>
+- Lightweight and deployable models  
 
 ---
 
 ## 🧩 4. Multi-task Adaptation
 
-A shared distilled backbone supports multiple follow-up tasks with lightweight heads:
+On top of the distilled backbone, PostGD supports **multiple postoperative follow-up tasks** via lightweight task-specific heads, as shown in the unified framework above:
 
 - **Segmentation**: laser scars, vessels, optic disc/cup  
-- **Localization**: fovea, optic disc center  
+- **Localization**: fovea and optic disc center  
 - **Classification**: postoperative outcomes  
 
-<div align="center">
-  <img src="assets/fig4_multitask.png" width="92%"/>
-  <br>
-  <em>One backbone, multiple postoperative tasks.</em>
-</div>
+This shared-backbone design allows knowledge transfer across tasks while maintaining efficiency.
 
 ---
 

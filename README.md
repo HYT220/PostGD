@@ -90,13 +90,4 @@ A shared distilled backbone supports multiple follow-up tasks with lightweight h
 
 ---
 
-## 🛠️ Installation
-
-```bash
-git clone https://github.com/<yourname>/<yourrepo>.git
-cd <yourrepo>
-
-conda create -n postgd python=3.10 -y
-conda activate postgd
-pip install -r requirements.txt
 

@@ -1,99 +1,101 @@
-[![header](https://capsule-render.vercel.app/api?type=rect&height=120&color=gradient&text=PostGD%20-%20Generation%E2%80%93Distillation%20Foundation%20Model&fontAlign=50&reversal=true&textBg=false&fontAlignY=37&fontSize=38&desc=For%20Post-Photocoagulation%20Fundus%20Follow-up%20in%20Medical%20Vision&descSize=24&descAlign=50&descAlignY=75)](https://arxiv.org/abs/XXXX.XXXXX)
+[![header](https://capsule-render.vercel.app/api?type=rect&height=120&color=gradient&text=PostGD%20-%20Generation%E2%80%93Distillation%20Foundation%20Model&fontAlign=50&reversal=true&textBg=false&fontAlignY=37&fontSize=38&desc=For%20Post-Photocoagulation%20Fundus%20Follow-up%20in%20Medical%20Vision&descSize=24&descAlign=50&descAlignY=75)]
 ---
 
-[![Paper](https://img.shields.io/badge/arXiv-Paper-b31b1b)](https://arxiv.org/abs/XXXX.XXXXX)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Manuscript-Under%20Review-orange)]()
 [![Framework](https://img.shields.io/badge/PyTorch-2.x-ee4c2c)](https://pytorch.org/)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-3776ab)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
-**PostGD** is a **Generation–Distillation Foundation Model** tailored for **post-photocoagulation fundus images**.  
-It integrates **prior-guided synthesis** (therapy- & anatomy-consistent laser patterns) with **foundation distillation** (e.g., DINOv3 teacher → lightweight student) to learn **robust postoperative representations** under **limited annotations**, enabling **segmentation / localization / classification** follow-up tasks.
+**PostGD** is a **Generation–Distillation Foundation Model** designed for  
+**post-photocoagulation fundus image analysis**.
 
----
+It integrates **prior-guided postoperative image synthesis** with **foundation-level representation distillation** to learn **robust and transferable postoperative representations** under **extremely limited annotations**, supporting dense and semantic follow-up tasks such as **segmentation, localization, and classification**.
 
-> **[Paper Title Here]**  
-> Authors: *Your author list*  
-> Venue: *IEEE TMI / MICCAI / ICCV workshop / etc.*  
-> **Project Page:** (optional)  
-> **arXiv:** https://arxiv.org/abs/XXXX.XXXXX
+> 📌 **Note**: The accompanying manuscript is currently *under review*.  
+> A public preprint and project page will be released upon acceptance.
 
 ---
 
 ## ✨ Highlights
 
-> **PostGD** — a generation–distillation paradigm that **pretrains on clinically constrained synthetic postoperative fundus** and **distills foundation priors** for **data-efficient** postoperative follow-up.
+> **PostGD** — A generation–distillation paradigm that bridges **clinically constrained synthesis** and **foundation model distillation** for objective postoperative fundus follow-up.
 
-- 🧠 **Foundation-level distillation** from a frozen teacher backbone to a compact student
-- 🧬 **Prior-guided postoperative synthesis** with anatomical constraints (disc / macula / vessels) + therapy constraints (laser placement)
-- 🧩 **Multi-task adaptation** with lightweight heads for segmentation / localization / classification
-- 📈 Consistent gains in few-shot / low-label settings across multiple downstream tasks
+- 🧬 Prior-guided synthesis with anatomical & therapeutic constraints  
+- 🧠 Foundation distillation from a frozen teacher to a lightweight student  
+- 🧩 Unified multi-task adaptation for postoperative analysis  
+- 📈 Strong performance under few-shot / low-label regimes  
 
 ---
 
-## 🧭 1. From Conventional Follow-up → Foundation-based Follow-up
+## 🧭 1. Motivation: From Experience-driven to Foundation-based Follow-up
 
-Clinical follow-up is often **experience-driven** and subjective. PostGD enables **structured representations** and **quantitative measures** for objective postoperative assessment.
+Conventional post-photocoagulation follow-up relies heavily on **subjective visual inspection** by clinicians.  
+PostGD enables **structured representations and quantitative measurements**, facilitating **objective and reproducible** postoperative assessment.
 
 <div align="center">
-  <img src="assets/fig1_pipeline.png" width="92%" alt="PostGD motivation and paradigm"/>
+  <img src="assets/fig1_paradigm.png" width="92%"/>
   <br>
-  <em>PostGD bridges experience-driven follow-up and foundation-based follow-up via generation–distillation.</em>
+  <em>PostGD transforms experience-driven follow-up into foundation-based representation learning.</em>
 </div>
 
 ---
 
 ## 🌀 2. Prior-Guided Postoperative Data Engine
 
-Instead of naive synthesis, PostGD enforces **clinically valid priors**:
-- anatomy: optic disc/cup, macula, vessels
-- therapy: **photocoagulation spot layout constraints**
-- realism: background generation + constrained spot synthesis
+Instead of naive synthesis, PostGD enforces **clinically valid constraints** during data generation:
+
+- **Anatomical priors**: optic disc/cup, macula, vessels  
+- **Therapeutic priors**: laser spot placement and distribution  
+- **Visual realism**: foundation-generated backgrounds + constrained spot synthesis  
 
 <div align="center">
-  <img src="assets/fig2_generation.png" width="92%" alt="Prior-guided synthesis"/>
+  <img src="assets/fig2_generation.png" width="92%"/>
   <br>
-  <em>Prior-guided synthesis produces anatomically and therapeutically consistent postoperative fundus images.</em>
+  <em>Anatomically and therapeutically consistent postoperative fundus synthesis.</em>
 </div>
 
 ---
 
 ## 🔥 3. Foundation Distillation for Postoperative Representation Learning
 
-We distill rich structural/semantic priors from a frozen teacher (e.g., DINOv3) into a lightweight student backbone using large-scale synthetic postoperative data.
+PostGD distills structural and semantic priors from a **frozen foundation teacher** into a **compact student backbone**, using large-scale synthetic postoperative data.
+
+This enables:
+- Stable representation learning under limited real annotations  
+- Efficient downstream adaptation  
+- Lightweight deployment  
 
 <div align="center">
-  <img src="assets/fig3_distill.png" width="92%" alt="Representation distillation"/>
+  <img src="assets/fig3_distillation.png" width="92%"/>
   <br>
-  <em>Distillation aligns postoperative representations under limited real annotations.</em>
+  <em>Foundation distillation aligns synthetic and real postoperative representations.</em>
 </div>
 
 ---
 
-## 🧩 4. Multi-task Adaptation for Downstream Follow-up
+## 🧩 4. Multi-task Adaptation
 
-A shared distilled backbone + lightweight task heads:
-- **Segmentation:** laser spots / vessels / disc-cup / lesions
-- **Localization:** fovea / disc center (ED in pixels)
-- **Classification:** postoperative status / edema outcome / etc.
+A shared distilled backbone supports multiple follow-up tasks with lightweight heads:
+
+- **Segmentation**: laser scars, vessels, optic disc/cup  
+- **Localization**: fovea, optic disc center  
+- **Classification**: postoperative outcomes  
 
 <div align="center">
-  <img src="assets/fig4_multitask.png" width="92%" alt="Multi-task adaptation"/>
+  <img src="assets/fig4_multitask.png" width="92%"/>
   <br>
-  <em>One distilled backbone supports multiple postoperative tasks with minimal task-specific parameters.</em>
+  <em>One backbone, multiple postoperative tasks.</em>
 </div>
-
----
-
-## 📦 News / Updates
-- **2026-XX-XX:** Code release (initial).
-- **2026-XX-XX:** Added synthetic generation scripts + distillation configs.
-- **2026-XX-XX:** Added multi-task heads and evaluation.
 
 ---
 
 ## 🛠️ Installation
 
-### 1) Clone
 ```bash
 git clone https://github.com/<yourname>/<yourrepo>.git
 cd <yourrepo>
+
+conda create -n postgd python=3.10 -y
+conda activate postgd
+pip install -r requirements.txt
+

@@ -1,4 +1,4 @@
-[![header](https://capsule-render.vercel.app/api?type=rect&height=120&color=gradient&text=PostGD%20-%20Generation%E2%80%93Distillation%20Foundation%20Model&fontAlign=50&reversal=true&textBg=false&fontAlignY=37&fontSize=38&desc=For%20Post-Photocoagulation%20Fundus%20Follow-up%20in%20Medical%20Vision&descSize=24&descAlign=50&descAlignY=75)]
+[![header](https://capsule-render.vercel.app/api?type=rect&height=160&color=gradient&text=A%20Generation%E2%80%93Distillation%20Foundation%20Model%20for%20Post-Photocoagulation%20Fundus%20Images&fontAlign=50&fontAlignY=55&fontSize=32)]
 ---
 
 [![Status](https://img.shields.io/badge/Manuscript-Under%20Review-orange)]()

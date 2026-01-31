@@ -34,7 +34,7 @@ Conventional post-photocoagulation follow-up relies heavily on **subjective visu
 PostGD enables **structured representations and quantitative measurements**, facilitating **objective and reproducible** postoperative assessment.
 
 <div align="center">
-  <img src="image/1.12g1(1).pdf" width="92%"/>
+  <img src="image/g1.jpg" width="92%"/>
   <br>
   <em>PostGD transforms experience-driven follow-up into foundation-based representation learning.</em>
 </div>
